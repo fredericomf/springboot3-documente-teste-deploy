@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  mysql:
+    image: mysql
+    container_name: springboot3-documente-teste-deploy
+    ports:
+      - 3306:3306
+    # command: --init-file /data/application/database_initialization.sql
+    volumes:
+      - ./dados_mysql:/var/lib/mysql
+    # - ./database_initialization.sql:/data/application/database_initialization.sql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'vollmed_api'
+      MYSQL_USER: 'test'
+      MYSQL_PASSWORD: 'test'
+      MYSQL_ROOT_PASSWORD: 'root'
